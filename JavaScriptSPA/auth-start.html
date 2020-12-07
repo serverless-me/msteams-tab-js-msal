@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script type="text/javascript" src="https://alcdn.msauth.net/lib/1.4.0/js/msal.js" integrity="sha384-DqrejB/00ccJc4ufFWc+TA3ImOruMihWCj6Wu9hEzRUNdqt4180qlzT0mFa6/Zp2" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="./msalClient.js"></script>
+  </head>
+<body>
+    Login Start
+</body>
+    <script type="text/javascript">
+      if (msalClient.getAccount()) {
+        tokenRequest.loginHint = msalClient.getAccount().userName;
+        msalClient.acquireTokenRedirect(tokenRequest);
+      }
+      else{
+        msalClient.loginRedirect(tokenRequest);
+      }
+    </script>
+</html>

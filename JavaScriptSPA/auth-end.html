@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script type="text/javascript" src="https://alcdn.msauth.net/lib/1.4.0/js/msal.js" integrity="sha384-DqrejB/00ccJc4ufFWc+TA3ImOruMihWCj6Wu9hEzRUNdqt4180qlzT0mFa6/Zp2" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/@microsoft/teams-js/dist/MicrosoftTeams.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="./msalClient.js"></script>
+
+  </head>
+<body>
+    Login End
+</body>
+    <script type="text/javascript">
+      microsoftTeams.initialize();
+      let debugTimeout = 0;
+      setTimeout(function(){ 
+          if (msalClient.getAccount()) {
+                  tokenRequest.loginHint = msalClient.getAccount().userName;
+                  msalClient.acquireTokenSilent(tokenRequest)
+                  .then(tokenResponse => {
+                    setTimeout(function(){ 
+                      microsoftTeams.authentication.notifySuccess(tokenResponse);
+                    },debugTimeout);
+                  })
+                  .catch(error => {
+                    
+                    setTimeout(function(){ 
+                      microsoftTeams.authentication.notifyFailure(error);
+                    },debugTimeout);
+                  });
+          }
+      }, debugTimeout);
+    </script>
+</html>

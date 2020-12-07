@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Quickstart | JavaScript SPA</title>
+    <link rel="SHORTCUT ICON" href="./favicon.svg" type="image/x-icon">
+
+    <!-- msal.min.js can be used in the place of msal.js; included msal.js to make debug easy -->
+    <script type="text/javascript" src="https://alcdn.msauth.net/lib/1.4.0/js/msal.js" integrity="sha384-DqrejB/00ccJc4ufFWc+TA3ImOruMihWCj6Wu9hEzRUNdqt4180qlzT0mFa6/Zp2" crossorigin="anonymous"></script>
+    
+    <script src="https://unpkg.com/@microsoft/teams-js/dist/MicrosoftTeams.min.js" crossorigin="anonymous"></script>
+
+    <!-- adding Bootstrap 4 for UI components  -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <a class="navbar-brand" href="/">Teams Authentication</a>
+    </nav>
+    <br>
+    <h5 class="card-header text-center">SPA (SSO, MS Graph)</h5>
+    <br>
+    <div class="row" style="margin:auto" >
+    <div id="card-div" class="col-md-3">
+    <div class="card text-center">
+      <div class="card-body">
+        <h5 class="card-title" id="welcomeMessage">Welcome</h5>
+        <div id="profile-div"></div>
+        <br>
+        <br>
+        <button class="btn btn-primary d-none" id="readMail" onclick="graphApp.readMail()">Read Mails</button>
+        <br>
+        <br>
+        <button class="btn btn-primary d-none" id="getFiles" onclick="graphApp.getFiles()">Get Files</button>
+      </div>
+    </div>
+    </div>
+    <br>
+    <br>
+      <div class="col-md-4">
+        <div class="list-group" id="list-tab" role="tablist">
+        </div>
+      </div>
+      <div class="col-md-5">
+        <div class="tab-content" id="nav-tabContent">
+        </div>
+      </div>
+    </div>
+    <br>
+    <br>
+    <p>Find more information regarding <a href="https://docs.microsoft.com/en-us/microsoftteams/platform/tabs/how-to/authentication/auth-aad-sso" target="_blank">
+    SSO for Tabs in Teams</a>.</p>
+    <p>This sample uses Graph API for <a href="https://docs.microsoft.com/en-us/graph/api/driveitem-list-children?view=graph-rest-1.0&tabs=http" target="_blank">OneDrive</a>
+    and <a href="https://docs.microsoft.com/en-us/graph/api/user-list-messages?view=graph-rest-1.0&tabs=http" target="_blank">Messages</a>.
+    </p>
+    <p>Source Code for the project is here in <a href="https://dev.azure.com/Teams-Apps-CoE/ISV-Demos/_git/tab-sso-graph" target="_blank">Azure DevOps</a></p>
+    <!-- importing bootstrap.js and supporting js libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>  
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="jwt-decode.js"></script>
+    <script type="text/javascript" src="./ui.js"></script>
+    <script type="text/javascript" src="./graphApp.js"></script>
+    <script type="text/javascript" src="./msalClient.js"></script>
+    <script type="text/javascript" src="./teamsAuth.js"></script>
+    <script>
+      teamsAuth.sso();
+    </script>
+  </body>
+</html>

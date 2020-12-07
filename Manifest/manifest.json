@@ -1,0 +1,54 @@
+{
+    "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.8/MicrosoftTeams.schema.json",
+    "manifestVersion": "1.8",
+    "version": "1.0.3",
+    "id": "6e9acc27-725f-4ff1-bf26-9bd5f4e445f1",
+    "packageName": "tab-js-msal",
+    "developer": {
+        "name": "Contoso",
+        "websiteUrl": "https://www.contoso.com",
+        "privacyUrl": "https://www.contoso.com/privacy",
+        "termsOfUseUrl": "https://www.contoso.com/termofuse"
+    },
+    "icons": {
+        "color": "color.png",
+        "outline": "outline.png"
+    },
+    "name": {
+        "short": "Tab-JS-MSAL",
+        "full": "JavaScript MSAL Graph Demo"
+    },
+    "description": {
+        "short": "Display a html page and load data with MS Graph",
+        "full": "Display a html page, login and load data with MS Graph "
+    },
+    "accentColor": "#235EA5",
+    "configurableTabs": [
+        {
+            "configurationUrl": "https://<NGROK_DOMAIN>.ngrok.io/config.html",
+            "canUpdateConfiguration": true,
+            "scopes": [
+                "team",
+                "groupchat"
+            ],
+            "context": [
+                "channelTab",
+                "privateChatTab",
+                "meetingSidePanel",
+                "meetingDetailsTab",
+                "meetingChatTab"
+            ]
+        }
+    ],
+    "permissions": [
+        "identity",
+        "messageTeamMembers"
+    ],
+    "validDomains": [
+        "<NGROK_DOMAIN>.ngrok.io"
+    ],
+    "webApplicationInfo": {
+        "id": "<APP_ID>",
+        "resource": "api://<NGROK_DOMAIN>.ngrok.io/<APP_ID>"
+    }
+}
