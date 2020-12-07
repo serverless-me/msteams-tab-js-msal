@@ -6,6 +6,12 @@ There is another good [sample using REACT](https://github.com/pnp/teams-dev-samp
 
 Official documentation of [Microsoft Teams authentication flow for tabs](https://docs.microsoft.com/en-us/microsoftteams/platform/tabs/how-to/authentication/auth-flow-tab)
 
+# Prerequisites
+
+- Azure App Registration
+- Replace the placeholders with your domain and App ID
+- Run the sample with NGROK
+
 # About this sample
 
 This sample is using only JavaScript for the implementation of the authentication popup:
