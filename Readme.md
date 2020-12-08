@@ -1,18 +1,10 @@
 # Documentation on Authentication and Authorization for Teams Tabs
 
-This is a good [blog post by Bob German](https://bob1german.com/2020/08/31/calling-microsoft-graph-from-your-teams-application-part3/#3-teams-pop-up-with-msal-20) about Teams MSAL-based authorization:
+How to use MSAL in a Teams Tab is described in this [blog post by Bob German](https://bob1german.com/2020/08/31/calling-microsoft-graph-from-your-teams-application-part3/#3-teams-pop-up-with-msal-20). The blog post is linked to this [sample using REACT](https://github.com/pnp/teams-dev-samples/tree/master/samples/tab-aad-msal2)
 
-There is another good [sample using REACT](https://github.com/pnp/teams-dev-samples/tree/master/samples/tab-aad-msal2)
+The sample in this repository is based on the same approach, but uses only Node.js and JavaScript.
 
-Official documentation of [Microsoft Teams authentication flow for tabs](https://docs.microsoft.com/en-us/microsoftteams/platform/tabs/how-to/authentication/auth-flow-tab)
-
-# Prerequisites
-
-- Azure App Registration
-- Replace the placeholders with your domain and App ID
-- Run the sample with NGROK
-
-# About this sample
+# Authentication & Authorization Flow
 
 This sample is using only JavaScript for the implementation of the authentication popup:
 
@@ -84,3 +76,34 @@ This sample is using only JavaScript for the implementation of the authenticatio
         });
     }
 ```
+
+# Prerequisites
+
+## Azure App Registration
+
+1. Authentication
+
+![Authentication](/docs/Az-Authentication.jpg "Authentication")
+
+2. API Permissions
+
+![ApiPermissions](/docs/Az-ApiPermissions.jpg "API Permissions")
+
+3. Expose API
+
+![Expose API](/docs/Az-ExposeApi.jpg "Expose API")
+
+## Replace the placeholders with your ngrok domain and App ID
+
+1. In the manifest.json
+2. In the msalClient.js
+
+## Run the sample with NGROK
+
+```
+ngrok http -host-header=rewrite 3978
+```
+
+# References
+
+- [Microsoft Teams authentication flow for tabs](https://docs.microsoft.com/en-us/microsoftteams/platform/tabs/how-to/authentication/auth-flow-tab)
